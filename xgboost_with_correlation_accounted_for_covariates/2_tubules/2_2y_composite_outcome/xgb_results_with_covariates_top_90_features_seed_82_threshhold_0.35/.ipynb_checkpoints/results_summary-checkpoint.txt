@@ -1,0 +1,15 @@
+Classification Report (Aggregated over all folds):
+              precision    recall  f1-score   support
+
+           0     0.8125    0.7091    0.7573        55
+           1     0.5789    0.7097    0.6377        31
+
+    accuracy                         0.7093        86
+   macro avg     0.6957    0.7094    0.6975        86
+weighted avg     0.7283    0.7093    0.7142        86
+
+
+Overall Accuracy: 0.7093
+Overall AUC: 0.7232
+Overall MCC: 0.4049
+Overall Specificity: 0.7091

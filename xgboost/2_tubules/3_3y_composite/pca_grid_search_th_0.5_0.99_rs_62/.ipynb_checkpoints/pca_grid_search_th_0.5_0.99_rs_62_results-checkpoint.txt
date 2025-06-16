@@ -1,0 +1,26 @@
+Classification Report (Aggregated):
+              precision    recall  f1-score   support
+
+           0     0.6875    0.7333    0.7097        45
+           1     0.6842    0.6341    0.6582        41
+
+    accuracy                         0.6860        86
+   macro avg     0.6859    0.6837    0.6840        86
+weighted avg     0.6859    0.6860    0.6851        86
+
+Overall Accuracy: 0.6860
+Overall AUC: 0.7333
+Overall MCC: 0.3696
+Overall Specificity: 0.7333
+
+Best Params Per Fold:
+Fold 1: {'colsample_bytree': 1.0, 'learning_rate': 0.2, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+Fold 2: {'colsample_bytree': 0.6, 'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 200, 'subsample': 1.0}
+Fold 3: {'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 100, 'subsample': 0.6}
+Fold 4: {'colsample_bytree': 1.0, 'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100, 'subsample': 0.6}
+Fold 5: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 200, 'subsample': 1.0}
+Fold 6: {'colsample_bytree': 0.6, 'learning_rate': 0.2, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.6}
+Fold 7: {'colsample_bytree': 0.6, 'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100, 'subsample': 1.0}
+Fold 8: {'colsample_bytree': 0.6, 'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 300, 'subsample': 0.6}
+Fold 9: {'colsample_bytree': 0.6, 'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 200, 'subsample': 0.6}
+Fold 10: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100, 'subsample': 0.6}

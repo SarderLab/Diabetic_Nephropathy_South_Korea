@@ -1,0 +1,18 @@
+=== Overall Classification Report ===
+              precision    recall  f1-score   support
+
+           0     0.8367    0.6406    0.7257        64
+           1     0.3784    0.6364    0.4746        22
+
+    accuracy                         0.6395        86
+   macro avg     0.6076    0.6385    0.6001        86
+weighted avg     0.7195    0.6395    0.6614        86
+
+
+Confusion Matrix:
+[[41 23]
+ [ 8 14]]
+
+AUC: 0.7038
+Specificity: 0.6406
+MCC: 0.2441
