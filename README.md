@@ -35,9 +35,9 @@ We perform binary classification for three key outcomes:
 The following figures show the class distribution for each binary outcome:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f19b2cdb-42c9-46b1-89b0-1ac0019cc10a" alt="ESKD Class Balance" width="30%" height="200px" style="margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/eb8e4a82-70aa-4a58-97d2-205beed5451a" alt="2-Years Class Balance" width="30%" height="200px" style="margin-right: 10px;" >
-  <img src="https://github.com/user-attachments/assets/d2df57e3-69cb-43a7-95be-a9641ff16cc7" alt="3-Years Class Balance" width="30%" height="200px" style="margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/f19b2cdb-42c9-46b1-89b0-1ac0019cc10a" alt="ESKD Class Balance" width="30%" height="250px" style="margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/eb8e4a82-70aa-4a58-97d2-205beed5451a" alt="2-Years Class Balance" width="30%" height="250px" style="margin-right: 10px;" >
+  <img src="https://github.com/user-attachments/assets/d2df57e3-69cb-43a7-95be-a9641ff16cc7" alt="3-Years Class Balance" width="30%" height="250px" style="margin-right: 10px;">
 </div>
 
 ### Patient-Level Covariates
