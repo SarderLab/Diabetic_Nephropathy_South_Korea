@@ -29,9 +29,18 @@ We perform binary classification for three key outcomes:
   - **Minimum:** 178
   - **Maximum:** 3393
   - **Mean:** 1039
+  - 
+### Class Balance
+
+The following figures show the class distribution for each binary outcome:
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f19b2cdb-42c9-46b1-89b0-1ac0019cc10a" alt="ESKD Class Balance" width="30%" style="margin-right: 10px;>
+  <img src="https://github.com/user-attachments/assets/eb8e4a82-70aa-4a58-97d2-205beed5451a" alt="2-Years Class Balance" width="30%" style="margin-right: 10px;" >
+<img src="https://github.com/user-attachments/assets/d2df57e3-69cb-43a7-95be-a9641ff16cc7" alt="3-Years Class Balance" width="30%" style="margin-right: 10px;">
+</div>
 
 ### Patient-Level Covariates
-Used for optional covariate regression:
 - **Binary:** `Sex`, `Hypertension`, `Ischemic_Heart_Disease`, `Stroke_History`
 - **Continuous:** `Age`, `Weight`, `Height`, `Diabetic_Years`
 
@@ -51,9 +60,9 @@ Used for optional covariate regression:
 
 ---
 
-## 📈 Results
+## Results
 
-### 🧪 Notes
+### Notes
 1. All metrics are averaged over 10 folds.
 2. Precision, Recall, and F1 are **weighted** across classes.
 3. Only 45 significant proteins used for **predictive modeling**.
@@ -63,7 +72,7 @@ Used for optional covariate regression:
 
 ---
 
-### 🧪 ESKD Prediction
+### ESKD Prediction
 
 | Feature Set | Model                   | AUC    | MCC    | Precision | Recall | F1 Score | Specificity |
 |-------------|------------------------|--------|--------|-----------|--------|----------|-------------|
@@ -81,7 +90,7 @@ Used for optional covariate regression:
 
 ---
 
-### 🧪 2-Year Composite Outcome
+### 2-Year Composite Outcome
 
 | Feature Set | Model                   | AUC    | MCC    | Precision | Recall | F1 Score | Specificity |
 |-------------|------------------------|--------|--------|-----------|--------|----------|-------------|
@@ -99,7 +108,7 @@ Used for optional covariate regression:
 
 ---
 
-### 🧪 3-Year Composite Outcome
+### 3-Year Composite Outcome
 
 | Feature Set | Model                   | AUC    | MCC    | Precision | Recall | F1 Score | Specificity |
 |-------------|------------------------|--------|--------|-----------|--------|----------|-------------|
@@ -117,9 +126,11 @@ Used for optional covariate regression:
 
 ---
 
-## 🚀 Run Commands
+## Run Commands
 
 ### Clone the Repository
 ```bash
 git clone https://github.com/Srujith20/diabetic-nephropathy-dataset.git
 cd diabetic-nephropathy-dataset
+
+
