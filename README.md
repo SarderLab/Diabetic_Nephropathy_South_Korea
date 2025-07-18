@@ -67,7 +67,7 @@ The following figures show the class distribution for each binary outcome:
 2. Precision, Recall, and F1 are **weighted** across classes.
 3. Only 45 significant proteins used for **predictive modeling**.
 4. **All proteins** used for correlation with glomeruli/tubules.
-5. **No covariate regression** used for the reported results.
+5. Covariate regression is only used for correlation.
 6. Seed = `42` ensures identical folds across models.
 
 ---
