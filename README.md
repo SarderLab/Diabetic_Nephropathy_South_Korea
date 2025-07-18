@@ -49,11 +49,10 @@ The following figures show the class distribution for each binary outcome:
 ## ⚙️ Modeling Pipeline
 
 - Feature normalization via `StandardScaler`
-- Covariate regression (optional, fold-specific linear models)
 - **Model types**:
-  - `XGBoost` (with and without PCA)
+  - `XGBoost` 
   - `SVM`
-  - `RNN` (Keras-based, sequence-level glomerular modeling)
+  - `RNN` 
 - **Evaluation**:
   - Stratified 10-fold cross-validation (fixed seed: 42)
   - Metrics: AUC-ROC, MCC, weighted Precision/Recall/F1, Specificity
