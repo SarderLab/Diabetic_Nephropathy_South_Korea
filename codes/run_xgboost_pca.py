@@ -19,16 +19,17 @@ warnings.filterwarnings("ignore")
 
 
 # ----------------- Data Loading Functions -----------------
-def import_data(csv_file):
+def import_data(csv_file, feature_start, feature_end):
     df = pd.read_csv(csv_file)
     patient_ids = df.iloc[:, 0].astype(str).str.strip()
-    features = df.iloc[:, 1:208]  # adjust if needed
+    features = df.iloc[:, feature_start:feature_end]
     feats = []
     unique_ids = patient_ids.unique()
     for pid in unique_ids:
         patient_data = features[patient_ids == pid].values
         feats.append(patient_data)
     return feats, unique_ids, features.columns.tolist()
+
 
 
 def import_labels(csv_file, label_column_name):
@@ -105,7 +106,9 @@ def cross_validate_xgboost_with_pca(config):
     prob_threshold = config.get("prob_threshold", 0.5)
 
     print("Loading data...")
-    feats, unique_ids, feature_names = import_data(csv_file)
+    feature_start = config.get("feature_start", 1)
+    feature_end = config.get("feature_end", 208)
+    feats, unique_ids, feature_names = import_data(csv_file, feature_start, feature_end)
     labels = import_labels(csv_file, label_column)
     print(f"Total patients: {len(labels)}")
 

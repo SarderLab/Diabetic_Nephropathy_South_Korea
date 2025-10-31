@@ -6,5 +6,7 @@
     "num_estimators": 300,
     "seed": 42,
     "n_pca_components": 0.95,
-    "prob_threshold": 0.35
+    "prob_threshold": 0.35,
+    "feature_start": 1,
+    "feature_end": 208
 }
