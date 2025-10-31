@@ -13,18 +13,21 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import StratifiedKFold
 
+
 # --- Data Loading ---
-def import_data(csv_file):
+def import_data(csv_file, feature_start, feature_end):
     df = pd.read_csv(csv_file)
     df.iloc[:, 0] = df.iloc[:, 0].astype(str)
     patient_ids = df.iloc[:, 0]
-    features = df.iloc[:, 1:316]
+    features = df.iloc[:, feature_start:feature_end]
+
     feats = []
     unique_ids = patient_ids.unique()
     for pid in unique_ids:
         patient_data = features[patient_ids == pid].values
         feats.append(patient_data.tolist())
     return feats
+
 
 def import_labels(csv_file, label_column_name):
     df = pd.read_csv(csv_file)
@@ -35,6 +38,7 @@ def import_labels(csv_file, label_column_name):
     unique_ids = patient_ids.unique()
     labels = labels_df.loc[unique_ids][label_column_name].values
     return labels.astype(np.int32)
+
 
 # --- Feature Standardization ---
 def standardize_features(feats, mean=None, std=None):
@@ -56,19 +60,23 @@ def standardize_features(feats, mean=None, std=None):
         standardized_feats.append(patient)
     return standardized_feats, mean, std
 
+
 # --- Mean Pooling ---
 def mean_pool(feats):
     return np.array([np.mean(np.array(patient), axis=0) for patient in feats])
+
 
 # --- Main Training Pipeline ---
 def run_svm_pipeline(config):
     data_path = config["data_path"]
     label_col = config["label_column"]
     output_root = config["output_root"]
+    feature_start = config.get("feature_start", 1)
+    feature_end = config.get("feature_end", 316)
     n_splits = config.get("n_splits", 10)
     seed = config.get("seed", None)
 
-    X = import_data(data_path)
+    X = import_data(data_path, feature_start, feature_end)
     y = import_labels(data_path, label_col)
 
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed)
@@ -97,6 +105,7 @@ def run_svm_pipeline(config):
         all_pred.extend(y_pred)
         all_probas.extend(y_proba)
 
+    # --- Evaluation ---
     overall_class_report = classification_report(all_true, all_pred, digits=4)
     overall_cm = confusion_matrix(all_true, all_pred)
     overall_auc = roc_auc_score(all_true, all_probas)
@@ -116,6 +125,7 @@ def run_svm_pipeline(config):
         f.write(summary)
     print(summary)
 
+    # --- Save Predictions ---
     results_csv_path = os.path.join(output_root, "all_predictions.csv")
     with open(results_csv_path, "w", newline="") as f:
         writer = csv.writer(f)
@@ -123,7 +133,7 @@ def run_svm_pipeline(config):
         for t, p, prob in zip(all_true, all_pred, all_probas):
             writer.writerow([f"{t:.4f}", f"{p:.4f}", f"{prob:.4f}"])
 
-    # Confusion Matrix
+    # --- Confusion Matrix ---
     plt.figure(figsize=(6, 5))
     sns.heatmap(overall_cm, annot=True, fmt="d", cmap="Blues", xticklabels=["0", "1"], yticklabels=["0", "1"])
     plt.xlabel("Predicted")
@@ -132,12 +142,13 @@ def run_svm_pipeline(config):
     plt.savefig(os.path.join(output_root, "confusion_matrix.png"))
     plt.close()
 
-    # ROC Curve
+    # --- ROC Curve ---
     RocCurveDisplay.from_predictions(all_true, all_probas)
     plt.title("ROC Curve")
     plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
     plt.savefig(os.path.join(output_root, "roc_curve.png"))
     plt.close()
+
 
 # --- Entry Point ---
 if __name__ == "__main__":

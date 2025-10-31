@@ -9,5 +9,7 @@
     "save_interval": 50,
     "learning_rate": 0.002,
     "output_root": "output_seq_30_drop_0.4_lr_0.002_seed_42",
-    "seed": 42
+    "seed": 42,
+    "feature_start": 1,
+    "feature_end": 208
 }

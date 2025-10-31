@@ -34,17 +34,18 @@ def setup_gpu():
 # ===============================
 # --- Data Loading ---
 # ===============================
-def import_data(csv_file):
+def import_data(csv_file, feature_start, feature_end):
     df = pd.read_csv(csv_file)
     df.iloc[:, 0] = df.iloc[:, 0].astype(str)
     patient_ids = df.iloc[:, 0]
-    features = df.iloc[:, 1:208]  # Adjust column range as needed
+    features = df.iloc[:, feature_start:feature_end]  # now configurable
     feats = []
     unique_ids = patient_ids.unique()
     for pid in unique_ids:
         patient_data = features[patient_ids == pid].values
         feats.append(patient_data.tolist())
     return feats
+
 
 
 def import_labels(csv_file, label_column_name):
@@ -190,7 +191,7 @@ def run_kfold_training(cfg):
 
     print(f"[INFO] Running K-Fold training with config:\n{json.dumps(cfg, indent=4)}")
 
-    raw_features = import_data(csv_file)
+    raw_features = import_data(csv_file, cfg["feature_start"], cfg["feature_end"])
     all_labels = np.array(import_labels(csv_file, label_column))
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
 
