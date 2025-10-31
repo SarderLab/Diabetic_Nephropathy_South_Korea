@@ -1,0 +1,10 @@
+{
+  "csv_file": "/blue/pinaki.sarder/narra.sr/5_DN_SKorea/data/combined_tubular_features_with_outcomes.csv",
+  "label_column": "2y_composite_outcome",
+  "folds": 10,
+  "agg_method": "mean",
+  "save_directory": "./xgb_results_seed_42_all_features",
+  "num_estimators": 300,
+  "seed": 42,
+  "prob_threshold": 0.35
+}
