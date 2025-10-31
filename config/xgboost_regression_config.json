@@ -10,5 +10,7 @@
     "top_features_num": 80,
     "prob_threshold": 0.35,
     "max_depth": 4,
-    "learning_rate": 0.2
+    "learning_rate": 0.2,
+    "feature_start": 1,
+    "feature_end": 316
 }

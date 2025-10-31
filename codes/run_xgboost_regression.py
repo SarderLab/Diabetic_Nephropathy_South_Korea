@@ -22,10 +22,15 @@ warnings.filterwarnings("ignore")
 
 
 # ----------------- Data Import Functions ----------------- #
-def import_data(csv_file):
+def import_data(csv_file, feature_start=None, feature_end=None):
     df = pd.read_csv(csv_file)
     patient_ids = df.iloc[:, 0].astype(str).str.strip()
-    features = df.iloc[:, 1:316]  # Adjust if needed
+
+    # Use feature range if provided, else default to 1:316
+    if feature_start is not None and feature_end is not None:
+        features = df.iloc[:, feature_start:feature_end]
+    else:
+        features = df.iloc[:, 1:316]
 
     feats = []
     unique_ids = patient_ids.unique()
@@ -33,6 +38,7 @@ def import_data(csv_file):
         patient_data = features[patient_ids == pid].values
         feats.append(patient_data)
     return feats, unique_ids, features.columns.tolist()
+
 
 
 def import_labels(csv_file, label_column_name):
@@ -136,7 +142,7 @@ def spearman_corr_matrix(X, Y):
 # ----------------- Main Pipeline ----------------- #
 def cross_validate_xgboost_with_feature_selection(config):
     # Load inputs
-    feats, unique_ids, feature_names = import_data(config["csv_file"])
+    feats, unique_ids, feature_names = import_data(config["csv_file"],feature_start=config.get("feature_start"),feature_end=config.get("feature_end"))
     labels = import_labels(config["csv_file"], config["label_column"])
     proteomics_df = import_proteomics(config["proteomics_file"])
     covariates_df = import_covariates(config["covariates_file"])
