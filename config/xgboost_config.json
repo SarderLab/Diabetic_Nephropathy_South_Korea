@@ -6,5 +6,7 @@
   "save_directory": "./xgb_results_seed_42_all_features",
   "num_estimators": 300,
   "seed": 42,
-  "prob_threshold": 0.35
+  "prob_threshold": 0.35,
+  "feature_start": 1,
+  "feature_end": 208
 }
