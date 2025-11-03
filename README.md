@@ -42,16 +42,8 @@ We perform binary classification for three key outcomes:
 
 ### Run the Pipeline
 ```bash
-
+python codes/run_{model}_pipeline.py --config config/{model}_config.json
 ```
-
-## Methods
-1. All metrics are averaged over 10 folds.
-2. Precision, Recall, and F1 are **weighted** across classes.
-3. Only 45 significant proteins used for **predictive modeling**.
-4. **All proteins** used for correlation with glomeruli/tubules.
-5. Covariate regression is only used for correlation.
-6. Seed = `42` ensures identical folds across models.
 
 ## Output Structure
 ```bash
