@@ -38,6 +38,14 @@ We perform binary classification for three key outcomes:
 - **2-Year Composite Outcome**
 - **3-Year Composite Outcome**
 
+## Dataset Format
+Each CSV file should contain:
+- A unique "patient_id" column identifying each participant.
+
+- Feature columns representing clinical measurements.
+
+- One or more outcome columns (e.g., ESKD, Outcome_2Y, Outcome_3Y) serving as targets for prediction.
+
 ## Training Commands
 
 ### Config File Setup
