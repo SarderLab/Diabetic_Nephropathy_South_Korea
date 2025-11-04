@@ -1,7 +1,7 @@
 {
-    "data_path": "/blue/pinaki.sarder/narra.sr/5_DN_SKorea/data/combined_glom_features_with_outcomes.csv",
-    "label_column": "2y_composite_outcome",
-    "output_root": "./svm_output_seed_42",
+    "data_path": "/features_file",
+    "label_column": "target",
+    "output_root": "./output",
     "feature_start": 1,
     "feature_end": 316,
     "n_splits": 10,

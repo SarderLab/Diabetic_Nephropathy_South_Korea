@@ -1,8 +1,8 @@
 {
-    "csv_file": "/blue/pinaki.sarder/narra.sr/5_DN_SKorea/data/combined_tubular_features_with_outcomes.csv",
-    "label_column": "esrd",
+    "csv_file": "/features_file",
+    "label_column": "target",
     "folds": 10,
-    "save_directory": "./xgb_results_pca",
+    "save_directory": "./output",
     "num_estimators": 300,
     "seed": 42,
     "n_pca_components": 0.95,

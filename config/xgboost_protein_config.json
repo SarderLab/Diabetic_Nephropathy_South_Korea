@@ -1,7 +1,7 @@
 {
-  "csv_file": "/blue/pinaki.sarder/narra.sr/5_DN_SKorea/data/protein_data/significant_raw_protein_data_with_labels.csv",
-  "label_column": "3y_composite_outcome",
-  "save_directory": "./xgb_results_no_regression",
+  "csv_file": "features_file",
+  "label_column": "target",
+  "save_directory": "./output",
   "folds": 10,
   "num_est": 300,
   "seed": 42,

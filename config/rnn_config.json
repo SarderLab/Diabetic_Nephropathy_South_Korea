@@ -1,6 +1,6 @@
 {
-    "csv_file": "/blue/pinaki.sarder/narra.sr/5_DN_SKorea/data/combined_tubular_features_with_outcomes.csv",
-    "label_column": "3y_composite_outcome",
+    "csv_file": "/features_file",
+    "label_column": "target",
     "seq_len": 30,
     "drop": 0.4,
     "num_classes": 2,
@@ -8,7 +8,7 @@
     "batch_size": 8,
     "save_interval": 50,
     "learning_rate": 0.002,
-    "output_root": "output_seq_30_drop_0.4_lr_0.002_seed_42",
+    "output_root": "./output",
     "seed": 42,
     "feature_start": 1,
     "feature_end": 208
