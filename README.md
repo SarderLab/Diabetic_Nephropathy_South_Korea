@@ -40,6 +40,14 @@ We perform binary classification for three key outcomes:
 
 ## Training Commands
 
+### Config File Setup
+Each pipeline uses a JSON config file located in the configs/ directory (e.g., rnn_config.json, xgb_config.json, svm_config.json).
+```bash
+- label_column → name of the target outcome column in the dataset (must exist in the CSV).
+- feature_start / feature_end → define the range of feature columns used for model input; adjust these indices based on how features are organized in your CSV file.
+```
+Refer to the example files in configs/ for parameter details.
+
 ### Run the Pipeline
 ```bash
 python codes/run_{model}_pipeline.py --config config/{model}_config.json
